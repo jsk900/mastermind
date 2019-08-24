@@ -79,7 +79,7 @@ section {
 
 .title h1 {
   font-family: 'Anton', sans-serif;
-  font-size: 3em;
+  font-size: 3vw;
   color: #333333;
   text-align: center;
   letter-spacing: 3px;
@@ -115,6 +115,19 @@ section {
   border-radius: 50%;
   margin-right: 5px;
   display: inline-block;
+  animation: pulse 1s linear infinite;
+}
+
+@keyframes pulse {
+  0% {
+    filter: brightness(100%);
+    transform: scale(1);
+  }
+
+  100% {
+    filter: brightness(200%);
+    transform: scale(1.2);
+  }
 }
 
 .playAgain {
