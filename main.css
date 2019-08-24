@@ -513,3 +513,18 @@ button:hover {
   margin-left: 25px;
 }
 /* Position result circles on grid end .................................... */
+
+/* Media queries */
+@media (max-width: 991px) and (min-width: 300px) {
+  body {
+    justify-content: start;
+  }
+
+  header {
+    display: none;
+  }
+
+  .title h1 {
+    margin-top: 20px;
+  }
+}
