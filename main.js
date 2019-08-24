@@ -113,7 +113,6 @@ purple.style =
 white.style =
   'background-color: white; background: radial-gradient(circle at 10px 10px, white, #01012c);';
 
-console.log(mysteryColours);
 //Functions
 
 //This function will select our four mystery colours.
@@ -155,15 +154,18 @@ const getRandomIntInclusive = (min, max) => {
 
 //Colour clicked. Put on available circle
 const putOnBoard = e => {
-  boardPositions[setCounter][posCounter].style.background =
-    e.target.style.background;
-  posCounter++;
-  if (posCounter === 4) {
-    checkSequence();
-    checkColours();
-    checkResults();
-    posCounter = 0;
-    setCounter++;
+  console.dir(e);
+  if (e.target.tagName === 'BUTTON') {
+    boardPositions[setCounter][posCounter].style.background =
+      e.target.style.background;
+    posCounter++;
+    if (posCounter === 4) {
+      checkSequence();
+      checkColours();
+      checkResults();
+      posCounter = 0;
+      setCounter++;
+    }
   }
 };
 
