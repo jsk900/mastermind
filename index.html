@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <h4>Instructions</h4>
+      <p>
+        <strong>Mastermind</strong> is a game of logic. The purpose of the game
+        is to decipher a four coloured code. Each hidden colour has a position.
+        Your job is to find the correct sequence. The hidden code has no
+        duplicate colours. You have ten attempts to discover the code. On each
+        attempt the computer will tell you if you have a correct colour in the
+        correct position with a <strong>green</strong> indicator. If you have a
+        correct colour but in the wrong position the computer lets you know with
+        a <strong>white</strong> indicator. Blank indicators mean colours you
+        chose are not part of the hidden code.
+      </p>
+    </header>
+    <section>
+      <div class="title"><h1>Mastermind</h1></div>
+      <div class="info">
+        <p></p>
+        <!--Intructions on what to do next -->
+        <div class="hidden">
+          <!--Show winning code -->
+          <div class="circle2" id="hOne"></div>
+          <div class="circle2" id="hTwo"></div>
+          <div class="circle2" id="hThree"></div>
+          <div class="circle2" id="hFour"></div>
+        </div>
+        <!-- playAgain button -->
+        <div class="playAgain">Play again</div>
+      </div>
+
+      <!-- Colour buttons -->
+      <div class="playArea">
+        <div class="colours">
+          <button class="blue"></button>
+          <button class="red"></button>
+          <button class="yellow"></button>
+          <button class="green"></button>
+          <button class="purple"></button>
+          <button class="white"></button>
+        </div>
+
+        <!-- Create the main board. Consisting of ten rows with guess colours and result colours -->
+        <div class="mainBoard">
+          <span class="circle" id="one"></span>
+          <span class="circle" id="two"></span>
+          <span class="circle" id="three"></span>
+          <span class="circle" id="four"></span>
+
+          <div class="resultOne">
+            <span class="miniCircle" id="minOne"></span>
+            <span class="miniCircle" id="minTwo"></span>
+            <span class="miniCircle" id="minThree"></span>
+            <span class="miniCircle" id="minFour"></span>
+          </div>
+
+          <span class="circle" id="five"></span>
+          <span class="circle" id="six"></span>
+          <span class="circle" id="seven"></span>
+          <span class="circle" id="eight"></span>
+
+          <div class="resultTwo">
+            <span class="miniCircle" id="minFive"></span>
+            <span class="miniCircle" id="minSix"></span>
+            <span class="miniCircle" id="minSeven"></span>
+            <span class="miniCircle" id="minEight"></span>
+          </div>
+
+          <span class="circle" id="nine"></span>
+          <span class="circle" id="ten"></span>
+          <span class="circle" id="eleven"></span>
+          <span class="circle" id="twelve"></span>
+
+          <div class="resultThree">
+            <span class="miniCircle" id="minNine"></span>
+            <span class="miniCircle" id="minTen"></span>
+            <span class="miniCircle" id="minEleven"></span>
+            <span class="miniCircle" id="minTwelve"></span>
+          </div>
+
+          <span class="circle" id="thirteen"></span>
+          <span class="circle" id="fourteen"></span>
+          <span class="circle" id="fifteen"></span>
+          <span class="circle" id="sixteen"></span>
+
+          <div class="resultFour">
+            <span class="miniCircle" id="minThirteen"></span>
+            <span class="miniCircle" id="minFourteen"></span>
+            <span class="miniCircle" id="minFifteen"></span>
+            <span class="miniCircle" id="minSixteen"></span>
+          </div>
+
+          <span class="circle" id="seventeen"></span>
+          <span class="circle" id="eighteen"></span>
+          <span class="circle" id="nineteen"></span>
+          <span class="circle" id="twenty"></span>
+
+          <div class="resultFive">
+            <span class="miniCircle" id="minSeventeen"></span>
+            <span class="miniCircle" id="minEighteen"></span>
+            <span class="miniCircle" id="minNineteen"></span>
+            <span class="miniCircle" id="minTwenty"></span>
+          </div>
+
+          <span class="circle" id="twentyone"></span>
+          <span class="circle" id="twentytwo"></span>
+          <span class="circle" id="twentythree"></span>
+          <span class="circle" id="twentyfour"></span>
+
+          <div class="resultSix">
+            <span class="miniCircle" id="minTwentyone"></span>
+            <span class="miniCircle" id="minTwentytwo"></span>
+            <span class="miniCircle" id="minTwentythree"></span>
+            <span class="miniCircle" id="minTwentyfour"></span>
+          </div>
+
+          <span class="circle" id="twentyfive"></span>
+          <span class="circle" id="twentysix"></span>
+          <span class="circle" id="twentyseven"></span>
+          <span class="circle" id="twentyeight"></span>
+
+          <div class="resultSeven">
+            <span class="miniCircle" id="minTwentyfive"></span>
+            <span class="miniCircle" id="minTwentysix"></span>
+            <span class="miniCircle" id="minTwentyseven"></span>
+            <span class="miniCircle" id="minTwentyeight"></span>
+          </div>
+
+          <span class="circle" id="twentynine"></span>
+          <span class="circle" id="thirty"></span>
+          <span class="circle" id="thirtyone"></span>
+          <span class="circle" id="thirtytwo"></span>
+
+          <div class="resultEight">
+            <span class="miniCircle" id="minTwentynine"></span>
+            <span class="miniCircle" id="minThirty"></span>
+            <span class="miniCircle" id="minThirtyone"></span>
+            <span class="miniCircle" id="minThirtytwo"></span>
+          </div>
+
+          <span class="circle" id="thirtythree"></span>
+          <span class="circle" id="thirtyfour"></span>
+          <span class="circle" id="thirtyfive"></span>
+          <span class="circle" id="thirtysix"></span>
+
+          <div class="resultNine">
+            <span class="miniCircle" id="minThirtythree"></span>
+            <span class="miniCircle" id="minThirtyfour"></span>
+            <span class="miniCircle" id="minThirtyfive"></span>
+            <span class="miniCircle" id="minThirtysix"></span>
+          </div>
+
+          <span class="circle" id="thirtyseven"></span>
+          <span class="circle" id="thirtyeight"></span>
+          <span class="circle" id="thirtynine"></span>
+          <span class="circle" id="forty"></span>
+
+          <div class="resultTen">
+            <span class="miniCircle" id="minThirtyseven"></span>
+            <span class="miniCircle" id="minThirtyeight"></span>
+            <span class="miniCircle" id="minThirtynine"></span>
+            <span class="miniCircle" id="minForty"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="main.js"></script>
+  </body>
+</html>

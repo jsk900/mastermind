@@ -1,0 +1,502 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
+
+/* Defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+  overflow: visible;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: darkslategrey;
+}
+
+/* Modal for instructions */
+header {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 100px;
+  height: 25px;
+  background-color: #ecc4b3;
+  border: 1px solid #5a5757;
+  border-top: none;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+header h4 {
+  color: darkslategray;
+  text-align: center;
+}
+
+header p {
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  top: 28px;
+  left: -500px;
+  padding: 15px;
+  color: darkslategray;
+  background-color: #ecc4b3;
+  border: 1px solid #5a5757;
+  transition: 0.8s ease-in-out;
+  border-radius: 15px;
+}
+
+header:hover p {
+  position: absolute;
+  left: 3px;
+}
+
+/* Main section for game */
+section {
+  background-color: #f1e6e6;
+  width: 320px;
+  height: 645px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.title {
+  width: 96%;
+  height: 70px;
+  margin-top: 5px;
+  border: 1px solid #5a5757;
+  background-color: #ecc4b3;
+}
+
+.title h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: 3em;
+  color: darkslategray;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+/* Information panel start ....................................................... */
+.info {
+  width: 96%;
+  height: 70px;
+  margin-top: 5px;
+  border: 1px solid #5a5757;
+  background-color: #ecc4b3;
+}
+
+.info p {
+  color: darkslategray;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 5px;
+}
+
+.hidden {
+  width: 100%;
+  height: 40px;
+  margin: 10px 0 0 10px;
+  float: left;
+}
+
+.hidden .circle2 {
+  width: 20px;
+  height: 20px;
+  border: 1px solid darkslategray;
+  border-radius: 50%;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.playAgain {
+  width: 100px;
+  height: 30px;
+  background-color: darkslategray;
+  color: #f1e6e6;
+  margin: -40px 1px 0 0;
+  text-align: center;
+  padding: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  float: right;
+}
+/* Information panel end ................................................... */
+
+/* Play area start ..................................................... */
+.playArea {
+  width: 320px;
+  height: 500px;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+/* Colour buttons panel */
+.colours {
+  width: 60px;
+  height: 485px;
+  margin: 5px 0 0 5px;
+  border: 1px solid #5a5757;
+  background-color: #ecc4b3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  float: left;
+}
+
+/* Define buttons */
+button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 20px 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+/* Game board */
+.mainBoard {
+  width: 245px;
+  height: 485px;
+  margin: 5px 5px 0 0;
+  border: 1px solid #5a5757;
+  background-color: #ecc4b3;
+  float: right;
+  display: grid;
+  grid-template-columns: repeat(4, 35px) 100px;
+  grid-template-rows: repeat(10, 48px);
+  justify-items: center;
+  align-items: center;
+}
+
+/* Guess circles */
+.circle {
+  width: 25px;
+  height: 25px;
+  border: 1px solid darkslategray;
+  border-radius: 50%;
+}
+
+/* Result circles */
+.miniCircle {
+  width: 15px;
+  height: 15px;
+  border: 1px solid darkslategray;
+  border-radius: 50%;
+}
+
+/* Position guess circles on grid start .................................... */
+#one {
+  grid-area: 1 / 1;
+}
+
+#two {
+  grid-area: 1 / 2;
+}
+
+#three {
+  grid-area: 1 / 3;
+}
+
+#four {
+  grid-area: 1 / 4;
+}
+
+#five {
+  grid-area: 2 / 1;
+}
+
+#six {
+  grid-area: 2 / 2;
+}
+
+#seven {
+  grid-area: 2 / 3;
+}
+
+#eight {
+  grid-area: 2 / 4;
+}
+
+#nine {
+  grid-area: 3 / 1;
+}
+
+#ten {
+  grid-area: 3 / 2;
+}
+
+#eleven {
+  grid-area: 3 / 3;
+}
+
+#twelve {
+  grid-area: 3 / 4;
+}
+
+#thirteen {
+  grid-area: 4 / 1;
+}
+
+#fourteen {
+  grid-area: 4 / 2;
+}
+
+#fifteen {
+  grid-area: 4 / 3;
+}
+
+#sixteen {
+  grid-area: 4 / 4;
+}
+
+#seventeen {
+  grid-area: 5 / 1;
+}
+
+#eighteen {
+  grid-area: 5 / 2;
+}
+
+#nineteen {
+  grid-area: 5 / 3;
+}
+
+#twenty {
+  grid-area: 5 / 4;
+}
+
+#twentyone {
+  grid-area: 6 / 1;
+}
+
+#twentytwo {
+  grid-area: 6 / 2;
+}
+
+#twentythree {
+  grid-area: 6 / 3;
+}
+
+#twentyfour {
+  grid-area: 6 / 4;
+}
+
+#twentyfive {
+  grid-area: 7 / 1;
+}
+
+#twentysix {
+  grid-area: 7 / 2;
+}
+
+#twentyseven {
+  grid-area: 7 / 3;
+}
+
+#twentyeight {
+  grid-area: 7 / 4;
+}
+
+#twentynine {
+  grid-area: 8 / 1;
+}
+
+#thirty {
+  grid-area: 8 / 2;
+}
+
+#thirtyone {
+  grid-area: 8 / 3;
+}
+
+#thirtytwo {
+  grid-area: 8 / 4;
+}
+
+#thirtythree {
+  grid-area: 9 / 1;
+}
+
+#thirtyfour {
+  grid-area: 9 / 2;
+}
+
+#thirtyfive {
+  grid-area: 9 / 3;
+}
+
+#thirtysix {
+  grid-area: 9 / 4;
+}
+
+#thirtyseven {
+  grid-area: 10 / 1;
+}
+
+#thirtyeight {
+  grid-area: 10 / 2;
+}
+
+#thirtynine {
+  grid-area: 10 / 3;
+}
+
+#forty {
+  grid-area: 10 / 4;
+}
+/* Position circles on grid end ............................................ */
+
+/* Position result circles on grid start .................................... */
+.resultOne {
+  grid-area: 1 / 5;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultTwo {
+  grid-area: 2 / 5;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultThree {
+  grid-area: 3 / 5;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultFour {
+  grid-area: 4 / 5;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultFive {
+  grid-area: 5 / 5;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultSix {
+  grid-area: 6 / 5;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultSeven {
+  grid-area: 7 / 5;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultEight {
+  grid-area: 8 / 5;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultNine {
+  grid-area: 9 / 5;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultTen {
+  grid-area: 10 / 5;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#minOne,
+#minTwo,
+#minThree,
+#minFour,
+#minFive,
+#minSix,
+#minSeven,
+#minEight,
+#minNine,
+#minTen,
+#minEleven,
+#minTwelve,
+#minThirteen,
+#minFourteen,
+#minFifteen,
+#minSixteen,
+#minSeventeen,
+#minEighteen,
+#minNineteen,
+#minTwenty,
+#minTwentyone,
+#minTwentytwo,
+#minTwentythree,
+#minTwentyfour,
+#minTwentyfive,
+#minTwentysix,
+#minTwentyseven,
+#minTwentyeight,
+#minTwentynine,
+#minThirty,
+#minThirtyone,
+#minThirtytwo,
+#minThirtythree,
+#minThirtyfour,
+#minThirtyfive,
+#minThirtysix,
+#minThirtyseven,
+#minThirtyeight,
+#minThirtynine,
+#minForty {
+  margin-right: 5px;
+}
+
+#minOne,
+#minFive,
+#minNine,
+#minThirteen,
+#minSeventeen,
+#minTwentyone,
+#minTwentyfive,
+#minTwentynine,
+#minThirtythree,
+#minThirtyseven {
+  margin-left: 25px;
+}
+/* Position result circles on grid end .................................... */
