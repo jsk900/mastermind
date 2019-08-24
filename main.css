@@ -17,14 +17,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(
-    to right top,
-    #e8ddb5,
-    #d2e1b8,
-    #bae3c2,
-    #a4e4d2,
-    #95e2e5
-  );
+  background-color: ghostwhite;
 }
 
 /* Modal for instructions */
@@ -34,7 +27,7 @@ header {
   left: 20px;
   width: 100px;
   height: 25px;
-  background-color: #95b8d1;
+  background-color: lightgray;
   border: 1px solid #666a86;
   border-top: none;
   border-bottom-left-radius: 15px;
@@ -54,7 +47,7 @@ header p {
   left: -500px;
   padding: 15px;
   color: #333333;
-  background-color: #95b8d1;
+  background-color: lightgray;
   border: 1px solid #666a86;
   transition: 0.8s ease-in-out;
   border-radius: 15px;
@@ -81,7 +74,7 @@ section {
   height: 70px;
   margin-top: 5px;
   border: 1px solid #666a86;
-  background-color: #95b8d1;
+  background-color: lightgray;
 }
 
 .title h1 {
@@ -98,7 +91,7 @@ section {
   height: 70px;
   margin-top: 5px;
   border: 1px solid #666a86;
-  background-color: #95b8d1;
+  background-color: lightgray;
 }
 
 .info p {
@@ -154,7 +147,7 @@ section {
   height: 485px;
   margin: 5px 0 0 5px;
   border: 1px solid #666a86;
-  background-color: #95b8d1;
+  background-color: lightgray;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -183,7 +176,7 @@ button:hover {
   height: 485px;
   margin: 5px 5px 0 0;
   border: 1px solid #666a86;
-  background-color: #95b8d1;
+  background-color: lightgray;
   float: right;
   display: grid;
   grid-template-columns: repeat(4, 35px) 100px;
