@@ -2,6 +2,7 @@ window.onload = () => start(); //Initialize game
 
 //Get DOM Elements
 const colours = document.querySelector('.colours');
+const [...buttonsArr] = document.querySelectorAll('button');
 const blue = document.querySelector('.blue');
 const red = document.querySelector('.red');
 const yellow = document.querySelector('.yellow');
@@ -126,6 +127,7 @@ white.style =
 //Therefore by checking if the size of the set is less than four we can try again
 //until our mystery array only has four unique colours.
 const start = () => {
+  buttonsArr.map(button => (button.disabled = false));
   playAgain.disabled = true;
   playAgain.style = 'opacity: 0';
   hidden.style = 'opacity: 0';
@@ -219,6 +221,7 @@ const checkResults = () => {
   if (win === 4) {
     info.innerHTML = 'You are a winner';
     playAgain.disabled = false;
+    buttonsArr.map(button => (button.disabled = true));
     playAgain.style = 'opacity: 1;cursor: pointer';
     mysteryColours.map((colour, index) => {
       hidden2[index].style.background = colour;
