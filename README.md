@@ -10,3 +10,6 @@ correct position with a green indicator. If you have a
 correct colour but in the wrong position the computer lets you know with
 a white indicator. Blank indicators mean colours you
 chose are not part of the hidden code.
+
+
+Live site at http://mastermind.goldencat.co.uk
