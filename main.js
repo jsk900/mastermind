@@ -117,7 +117,6 @@ purple.style =
 white.style =
   'background-color: white; background: radial-gradient(circle at 10px 10px, white, #01012c);';
 
-console.log(mysteryColours);
 //Functions
 
 //This function will initialize the game and select our four mystery colours.
