@@ -1,17 +1,20 @@
 window.onload = () => start(); //Initialize game
 
 //Get DOM Elements
-const colours = document.querySelector('.colours');
-const [...buttonsArr] = document.querySelectorAll('button');
+const colours = document.querySelector('.colours'); //Get buttons div for addEventListener
+const [...buttonsArr] = document.querySelectorAll('button'); //Get buttons to switch on or off
+//Get individual buttons for later styling
 const blue = document.querySelector('.blue');
 const red = document.querySelector('.red');
 const yellow = document.querySelector('.yellow');
 const green = document.querySelector('.green');
 const purple = document.querySelector('.purple');
 const white = document.querySelector('.white');
+
+//Information panel insert
 const info = document.querySelector('.info p');
 
-//Guesses
+//Get all four guesses for each row and place into an array
 const [...one] = document.querySelectorAll('#one, #two, #three, #four');
 const [...two] = document.querySelectorAll('#five, #six, #seven, #eight');
 const [...three] = document.querySelectorAll('#nine, #ten, #eleven, #twelve');
@@ -49,6 +52,7 @@ const [...resultEight] = document.querySelectorAll('.resultEight .miniCircle');
 const [...resultNine] = document.querySelectorAll('.resultNine .miniCircle');
 const [...resultTen] = document.querySelectorAll('.resultTen .miniCircle');
 
+//Play again button and hidden code to show after win
 const playAgain = document.querySelector('.playAgain');
 const playArea = document.querySelector('.playArea');
 const hidden = document.querySelector('.hidden');
@@ -120,12 +124,7 @@ white.style =
 
 //Functions
 
-//This function will initialize the game and select our four mystery colours.
-//As the random number generator can return an already used number
-//we need to remove duplicate colours from the mystery colours array.
-//We do by placing our array into a set. Sets can only have unique entries.
-//Therefore by checking if the size of the set is less than four we can try again
-//until our mystery array only has four unique colours.
+//This function will initialize the game
 const start = () => {
   buttonsArr.map(button => (button.disabled = false));
   playAgain.disabled = true;
@@ -136,7 +135,12 @@ const start = () => {
   assignColours();
 };
 
-//Create hidden colour code
+//Create hidden four mystery colours.
+//As the random number generator can return an already used number
+//we need to remove duplicate colours from the mystery colours array.
+//We do this by placing our array into a set. Sets can only have unique entries.
+//Therefore by checking if the size of the set is less than four we can try again
+//until our mystery array only has four unique colours.
 const assignColours = () => {
   for (let i = 0; i < 4; i++) {
     result = getRandomIntInclusive(1, 6);
@@ -158,7 +162,8 @@ const getRandomIntInclusive = (min, max) => {
   return number;
 };
 
-//Colour clicked. Put on available circle
+//Colour clicked. Put on available circle. This achieved by two variables. The posCounter which tells us
+//at which position within the row we are dealing with and the setCounter which tells us which row.
 const putOnBoard = e => {
   if (e.target.tagName === 'BUTTON') {
     boardPositions[setCounter][posCounter].style.background =
@@ -174,7 +179,8 @@ const putOnBoard = e => {
   }
 };
 
-//Check for correct colour and position
+//Check for correct colour and position. Loop around the selected row and compare colours to the
+//correct index.
 const checkSequence = () => {
   boardPositions[setCounter].map((pos1, index) => {
     if (pos1.style.background === mysteryColours[index]) {
@@ -184,7 +190,11 @@ const checkSequence = () => {
   });
 };
 
-//Check for correct colours in wrong position
+//Check for correct colours in wrong position. This needs to loop around the correct row
+//of the results array and check for empty slots. No point checking if the sequence checker
+//has already established correct sequence and colour. Now we need to check the guesses but for
+//only those colours that didn't match on sequence. If found we place  a white colour in the
+//appropriate cell.
 const checkColours = () => {
   resultPositions[setCounter].map((pos1, index1) => {
     if (pos1.style.background === '') {
@@ -202,7 +212,7 @@ const checkColours = () => {
   });
 };
 
-//Check result to continue or declare winner
+//Check result to continue or declare winner. We need all results for selected row to be green
 const checkResults = () => {
   winArr.length = 0;
   resultPositions[setCounter].map(pos => {
@@ -216,8 +226,10 @@ const checkResults = () => {
     }
   });
 
+  //Use reduce on our results array to determine the reults
   let win = winArr.reduce((total, x) => (x === true ? total + x : null));
 
+  //If 4 greens we have a winner
   if (win === 4) {
     info.innerHTML = 'You are a winner';
     playAgain.disabled = false;
