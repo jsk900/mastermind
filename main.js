@@ -9,6 +9,8 @@ const green = document.querySelector('.green');
 const purple = document.querySelector('.purple');
 const white = document.querySelector('.white');
 const info = document.querySelector('.info p');
+
+//Guesses
 const [...one] = document.querySelectorAll('#one, #two, #three, #four');
 const [...two] = document.querySelectorAll('#five, #six, #seven, #eight');
 const [...three] = document.querySelectorAll('#nine, #ten, #eleven, #twelve');
@@ -34,6 +36,7 @@ const [...ten] = document.querySelectorAll(
   '#thirtyseven, #thirtyeight, #thirtynine, #forty'
 );
 
+//Results
 const [...resultOne] = document.querySelectorAll('.resultOne .miniCircle');
 const [...resultTwo] = document.querySelectorAll('.resultTwo .miniCircle');
 const [...resultThree] = document.querySelectorAll('.resultThree .miniCircle');
@@ -44,6 +47,7 @@ const [...resultSeven] = document.querySelectorAll('.resultSeven .miniCircle');
 const [...resultEight] = document.querySelectorAll('.resultEight .miniCircle');
 const [...resultNine] = document.querySelectorAll('.resultNine .miniCircle');
 const [...resultTen] = document.querySelectorAll('.resultTen .miniCircle');
+
 const playAgain = document.querySelector('.playAgain');
 const playArea = document.querySelector('.playArea');
 const hidden = document.querySelector('.hidden');
@@ -113,12 +117,13 @@ purple.style =
 white.style =
   'background-color: white; background: radial-gradient(circle at 10px 10px, white, #01012c);';
 
+console.log(mysteryColours);
 //Functions
 
-//This function will select our four mystery colours.
+//This function will initialize the game and select our four mystery colours.
 //As the random number generator can return an already used number
 //we need to remove duplicate colours from the mystery colours array.
-//This we do by placing our array into a set. Sets can only have unique entries.
+//We do by placing our array into a set. Sets can only have unique entries.
 //Therefore by checking if the size of the set is less than four we can try again
 //until our mystery array only has four unique colours.
 const start = () => {
@@ -128,12 +133,6 @@ const start = () => {
   playArea.style = 'opacity: 1';
   info.innerHTML = 'Please choose a colour';
   assignColours();
-  colourSet = new Set(mysteryColours);
-  if (colourSet.size < 4) {
-    mysteryColours.length = 0;
-    colourSet.clear();
-    start();
-  }
 };
 
 //Create hidden colour code
@@ -141,6 +140,12 @@ const assignColours = () => {
   for (let i = 0; i < 4; i++) {
     result = getRandomIntInclusive(1, 6);
     mysteryColours.push(coloursArray[result]);
+  }
+  colourSet = new Set(mysteryColours);
+  if (colourSet.size < 4) {
+    mysteryColours.length = 0;
+    colourSet.clear();
+    start();
   }
 };
 
@@ -154,7 +159,6 @@ const getRandomIntInclusive = (min, max) => {
 
 //Colour clicked. Put on available circle
 const putOnBoard = e => {
-  console.dir(e);
   if (e.target.tagName === 'BUTTON') {
     boardPositions[setCounter][posCounter].style.background =
       e.target.style.background;
