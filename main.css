@@ -524,7 +524,51 @@ button:hover {
     display: none;
   }
 
+  section {
+    height: 515px;
+  }
+
+  .title {
+    height: 40px;
+  }
+
   .title h1 {
-    margin-top: 20px;
+    margin-top: 10px;
+  }
+
+  .playArea {
+    height: 400px;
+  }
+
+  /* Colour buttons panel */
+  .colours {
+    width: 60px;
+    height: 385px;
+    margin: 5px 0 0 5px;
+  }
+
+  button {
+    width: 20px;
+    height: 20px;
+    margin: 10px 0;
+  }
+
+  .mainBoard {
+    width: 245px;
+    height: 385px;
+    margin: 5px 5px 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 35px) 100px;
+    grid-template-rows: repeat(10, 38px);
+  }
+
+  .circle {
+    width: 15px;
+    height: 15px;
+  }
+
+  .miniCircle {
+    width: 10px;
+    height: 10px;
   }
 }
